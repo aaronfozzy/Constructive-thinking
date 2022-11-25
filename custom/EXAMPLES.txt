@@ -1,0 +1,15 @@
+--------------------------
+!! DELETE ON DEPLOYMENT !!
+--------------------------
+
+DX - D9 CUSTOM THEME
+--------------------
+Shortcode cheatsheet:
+
+
+Node:
+-----
+
+(Twig field shortcodes:
+https://sarahcodes.medium.com/getting-drupal-8-field-values-in-twig-22b80cb609bd)
+

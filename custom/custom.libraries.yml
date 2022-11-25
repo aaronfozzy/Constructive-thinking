@@ -1,0 +1,14 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      www/css/owl.carousel.min.css: {}
+      www/css/owl.theme.default.css: {}
+      'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css': { type: external }
+      www/css/styles.css: {}
+  js:
+    www/js/masonry.pkgd.min.js: {}
+    www/js/owl.carousel.min.js: {}
+    www/js/all.min.js: {}
+  dependencies:
+    - core/jquery

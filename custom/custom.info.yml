@@ -1,0 +1,26 @@
+name: Custom
+type: theme
+description: 'Fully comprehensive production theme.'
+package: Core
+# version: 9.0
+core_version_requirement: ^8 || ^9
+base theme: false
+
+libraries:
+  - custom/global-styling
+
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  page_title: 'Page title'
+  sub_menu: 'Sub menu'
+  footer: 'Footer'

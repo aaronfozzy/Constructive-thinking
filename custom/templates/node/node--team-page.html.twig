@@ -1,0 +1,22 @@
+  <img src="{{ file_url(content.field_banner_image['#items'].entity.uri.value) }}" class="banner-full" />
+  <div class="title-container">
+    <h3 class="split-title">{{ label.0 }}</h3>
+    {% if content.field_sub_title_text %}
+      <p class="title-side">{{ content.field_sub_title_text.0 }}</p>
+    {% endif %}
+  </div>
+  <div class="anchor-container">
+    <a href="#slide-down"><img src="/base_html/www/images/icons/chevron-down.svg" /></a>
+  </div>
+
+  {% if content.field_two_column_jagged_content %}
+    <div class="col-2" id="slide-down">
+      {{ content.field_two_column_jagged_content }}
+    </div>
+  {% endif %}
+
+  {% if content.field_team_members %}
+    <div class="team-profiles-container col-4">
+      {{ content.field_team_members }}
+    </div>
+  {% endif %}

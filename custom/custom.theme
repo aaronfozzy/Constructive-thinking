@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the custom theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+function custom_theme_suggestions_container_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  if (isset($element['#type']) && $element['#type'] == 'view') {
+    $suggestions[] = 'container__' . $element['#name'];
+    $suggestions[] = 'container__' . $element['#name'] . '__' . $element['#display_id'];
+  }
+
+  if (isset($element['#type']) && $element['#type'] == 'container' && isset($element['children']['#type'])) {
+    $suggestions[] = 'container__' . $element['children']['#type'];
+  }
+}
+
+
+function custom_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  if (isset($element['#context']) && isset($element['#type']) && isset($element['#name'])){
+    $viewid = $element['#context']['#view_id'];
+
+    $suggestions[] = 'form_element' . '__' . $viewid;
+
+    $suggestions[] = 'form_element' . '__' . $element['#type'] . '__' . $viewid;
+
+    $suggestions[] = 'form_element' . '__' . $element['#name'] . '__' . $viewid;
+    $suggestions[] = 'form_element' . '__' . $element['#name'] . '__' . $element['#type'] . '__' . $viewid;
+  } else if (isset($element['#type']) && isset($element['#name'])){
+    $viewid = 'resources';
+    $suggestions[] = 'form_element' . '__' . $element['#type'] . '__' . $viewid;
+
+    $suggestions[] = 'form_element' . '__' . $element['#name'] . '__' . $viewid;
+    $suggestions[] = 'form_element' . '__' . $element['#name'] . '__' . $element['#type'] . '__' . $viewid;
+  } 
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_label().
+ */
+function custom_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+  $suggestions = [];
+  if (isset($variables['element']['#form_element_type'])) {
+    $suggestions[] = 'form_element_label__type__' . $variables['element']['#form_element_type'];
+  }
+  if (isset($variables['element']['#form_id'])) {
+    $suggestions[] = 'form_element_label__form-id__' . $variables['element']['#form_id'];
+  }
+  if (isset($variables['element']['#form_element_type']) && isset($variables['element']['#form_id'])) {
+    $suggestions[] = 'form_element_label__' . $variables['element']['#form_id'] . '__' . $variables['element']['#form_element_type'];
+  }
+
+  return $suggestions;
+}
+
+function custom_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  if ($variables['element']['#type'] === 'checkbox') {
+    if (isset($variables['element']['#parents'][0])) {
+        $suggestions[] = $variables['theme_hook_original'].'__'.$variables['element']['#parents'][0];
+    }
+  }
+  if ($variables['element']['#type'] === 'textfield') {
+    if (isset($variables['element']['#parents'][0])) {
+        $suggestions[] = $variables['theme_hook_original'].'__'.$variables['element']['#parents'][0];
+    }
+  }
+}
+
+function custom_theme_suggestions_fieldset_alter(array &$suggestions, array $variables, $hook)
+{
+    if (isset($variables['element']['#id'])) {
+        $id = str_replace("-", "_", $variables['element']['#id']);
+        $suggestions[] = $hook . '__' . $id;
+    }
+}
+

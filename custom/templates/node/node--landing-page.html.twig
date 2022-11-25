@@ -1,0 +1,126 @@
+<img src="{{ file_url(content.field_banner_image['#items'].entity.uri.value) }}" class="banner-full" />
+<div class="landing-page-content">
+  <div class="title-container">
+    <h3 class="split-title">{{ label.0 }}</h3>
+    {% if content.field_sub_title_text %}
+      <p class="title-side">{{ content.field_sub_title_text.0 }}</p>
+    {% endif %}
+  </div>
+  <div class="anchor-container">
+    <a href="#slide-down"><img src="/base_html/www/images/icons/chevron-down.svg" /></a>
+  </div>
+
+  {% if content.field_two_column_jagged_content %}
+    <div class="col-2" id="slide-down">
+      {{ content.field_two_column_jagged_content }}
+    </div>
+  {% endif %}
+</div>
+
+  <!-- RETRO FIT PAGE -->
+  {% if node.id == '2' %}
+    <div class="map-bg">
+      <h3 class="split-title">{{ label.0 }}</h3>
+      <div class="col-2-linebreak">
+        <div class="col-left">
+          <h3>Contact</h3>
+          {{ drupal_entity('webform', 'contact') }}
+        </div>
+        <span class="breaker"></span>
+        <div class="col-right">
+          <h3>Address</h3>
+          <p>Liverpool Science Park,<br>
+            131 Mount Pleasant<br>
+            Liverpool<br>
+            L3 5TF
+          </p>
+
+          <h3>Telephone</h3>
+          <p>+44(0)151 705 3483</p>
+
+          <h3>Email</h3>
+          <p>info@constructivethinking.co.uk</p>
+
+          <div class="social-links">
+            <div class="logo-container">
+              <a href="https://www.facebook.com/constructivethinking" target="_blank">
+                <img src="/base_html/www/images/icons/facebook-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://www.instagram.com/ctslarchitect/" target="_blank">
+                <img src="/base_html/www/images/icons/instagram-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://www.linkedin.com/company/constructive-thinking-studio-limited/" target="_blank">
+                <img src="/base_html/www/images/icons/linkedin-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://twitter.com/CTSLarchitects" target="_blank">
+                <img src="/base_html/www/images/icons/twitter-logo-w.svg" />  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- CONTACT PAGE -->
+  {% if node.id == '5' %}
+    <div class="map-bg">
+      <div class="col-2-linebreak">
+        <div class="col-left">
+          <h3>Contact</h3>
+          {{ drupal_entity('webform', 'contact') }}
+        </div>
+        <span class="breaker"></span>
+        <div class="col-right">
+          <h5>Address</h5>
+          <p>Liverpool Science Park,<br>
+            131 Mount Pleasant<br>
+            Liverpool<br>
+            L3 5TF
+          </p>
+
+          <h5>Telephone</h5>
+          <p>+44(0)151 705 3483</p>
+
+          <h5>Email</h5>
+          <p>info@constructivethinking.co.uk</p>
+
+          <div class="social-links">
+            <div class="logo-container">
+              <a href="https://www.facebook.com/constructivethinking" target="_blank">
+                <img src="/base_html/www/images/icons/facebook-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://www.instagram.com/ctslarchitect/" target="_blank">
+                <img src="/base_html/www/images/icons/instagram-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://www.linkedin.com/company/constructive-thinking-studio-limited/" target="_blank">
+                <img src="/base_html/www/images/icons/linkedin-logo-w.svg" />
+              </a>
+            </div>
+
+            <div class="logo-container">
+              <a href="https://twitter.com/CTSLarchitects" target="_blank">
+                <img src="/base_html/www/images/icons/twitter-logo-w.svg" />  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ drupal_view('editable_settings', 'contact_footer_logos') }}
+  {% endif %}

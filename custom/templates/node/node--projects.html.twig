@@ -1,0 +1,23 @@
+<div class="col-2-width-2 projects">
+  <div class="col-left">
+    <h4 class="main-title">{{ label.0 }}</h4>
+    <p class="sub-title">{{ content.field_project_location.0 }}</p>
+    <div class="body-contents">
+      {{ content.body.0 }}
+    </div>
+    <div class="button-end">
+      <a href="/all-projects" class="button outline rounded">All projects</a>
+    </div>
+  </div>
+  <div class="col-right">
+    <div class="owl-carousel projects owl-theme">
+      {% if content.field_image[0] %}
+        {% for key, item in node.field_image if key|first != '#' %}
+          <div class="item">
+            <img src="{{ file_url(item.entity.uri.value) }}" />
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
